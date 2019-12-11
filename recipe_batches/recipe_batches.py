@@ -12,7 +12,7 @@ def recipe_batches(recipe, ingredients):
       print(" totals :", totals)
     else:
       totals.append(0)
-  return min(totals)
+  return min(totals) 
 
 
 recipe = { 'milk': 100, 'butter': 50, 'flour': 5 }
