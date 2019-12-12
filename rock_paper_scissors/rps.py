@@ -6,38 +6,26 @@ import sys
 
 
 def rock_paper_scissors(n):
-  plays = ['rock', 'paper', 'scissors']
-  single = []
+  plays = [['rock'], ['paper'], ['scissors']]
   total = []
 
-  def check_cycles(play, play2):
-      single.append(play)
-      single.append(play2)
-      total.append(single)
-      return total
+  def check_cycles(n, constantArray = []):
+    if n is 0:
+      # Return with all information from check_cycles appended to total array
+      return total.append(constantArray)
+      
+    for i in plays:
+      print("add :", constantArray, i)
+      # Constant Array becomes first i in list, dosen't change as i loops through plays, concating both arrays
+      check_cycles(n - 1, constantArray + i)
+    return total
 
-  for i in range(len(plays)):
-    for j in range(len(plays)):
-      if not plays[i]:
-        return total
-      else:
-        if len(single) <= n:
-          check_cycles(plays[i], plays[j])
+  # variable is empty array
 
-  print(single) 
-  print(play)
-  # def check_cycles(i):
-  #   for p in range(len(plays)): 
-  #       oneResult.append(plays[i])
-  #       oneResult.append(plays[p])
-  #       totalResults.append(oneResult)
-
-  # for i in range(len(plays)):
-  #   check_cycles(i)
-
-    #  n is length of inner list
-    #  show all combinations of each play
-    #  add them all to a list, checking to see if it doesn't exist
+  check_cycles(n)
+  print("Total :", total)
+  return total
+   
 
 rock_paper_scissors(2)
 
