@@ -10,13 +10,16 @@ def rock_paper_scissors(n):
   total = []
 
   def check_cycles(n, constantArray = []):
+    # Break Case
     if n is 0:
       # Return with all information from check_cycles appended to total array
       return total.append(constantArray)
       
+    # Loop through plays
     for i in plays:
       print("add :", constantArray, i)
       # Constant Array becomes first i in list, dosen't change as i loops through plays, concating both arrays
+      # Recurison until n hits break case above
       check_cycles(n - 1, constantArray + i)
     return total
 
